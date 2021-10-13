@@ -43,3 +43,8 @@ Requires: Qt5Core Qt5Gui
 
 4. pkg-config --exists xxx <br>
 假如連結庫存在則傳回 0。
+
+## Example
+```
+g++ $(pkg-config --cflags --libs Qt5Widgets) -fPIC -o hello hello.cpp
+```
