@@ -27,9 +27,6 @@ Libs: -lQt5Widgets
 Cflags: -DQT_WIDGETS_LIB -I${includedir}/QtWidgets -I${includedir}
 Requires: Qt5Core Qt5Gui
 ```
-* Name: 連結庫名稱
-* Description: 連結庫描述
-* Version: 連結庫版本
 * Requires: 連結庫相依連結庫名稱
 * Libs: 連結庫編譯所需的 LDFLAGS 參數
 * Cflags: 連結庫編譯所需的 CFLAGS 參數
