@@ -27,8 +27,22 @@ Libs: -lQt5Widgets
 Cflags: -DQT_WIDGETS_LIB -I${includedir}/QtWidgets -I${includedir}
 Requires: Qt5Core Qt5Gui
 ```
+* Name: 連結庫名稱
+* Description: 連結庫描述
+* Version: 連結庫版本
+* Requires: 連結庫相依連結庫名稱
+* Libs: 連結庫編譯所需的 LDFLAGS 參數
+* Cflags: 連結庫編譯所需的 CFLAGS 參數
 
 ## Options
 1. pkg-config --list-all <br>
 列出所有可使用的連結庫，位置在 `/usr/lib/pkgconfig` 及 `/usr/local/lib/pkgconfig` 裡面的 `xxx.pc` 檔，新軟體一般都會安裝 `.pc` 檔，沒有可以自己建立，並且設定環境變數 `PKG_CONFIG_PATH` 供 `pkg-config` 尋找 `.pc` 檔路徑。
 
+2. pkg-config --cflags xxxx <br>
+取得該連結庫的 CFLAGS 參數。
+
+3. pkg-config --libs xxxx <br>
+取得該連結庫的 LDFLAGS 參數。
+
+4. pkg-config --exists xxx <br>
+假如連結庫存在則傳回 0。
