@@ -50,3 +50,4 @@ g++ $(pkg-config --cflags --libs Qt5Widgets) -fPIC -o hello hello.cpp
 ```
 ## Reference
 * [pkg-config - Wikipedia](https://en.wikipedia.org/wiki/Pkg-config)
+* [鳥哥的 Linux 私房菜 -- 第十章、認識與學習BASH](http://linux.vbird.org/linux_basic/0320bash.php)
