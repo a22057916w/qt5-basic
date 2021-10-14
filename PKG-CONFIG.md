@@ -48,3 +48,5 @@ Requires: Qt5Core Qt5Gui
 ```
 g++ $(pkg-config --cflags --libs Qt5Widgets) -fPIC -o hello hello.cpp
 ```
+## Reference
+* [pkg-config - Wikipedia](https://en.wikipedia.org/wiki/Pkg-config)
