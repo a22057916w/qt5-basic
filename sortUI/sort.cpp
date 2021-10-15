@@ -23,7 +23,7 @@ void updateArray(vector<int> &arr) {
     e = rand() % 100;
 }
 
-void updateButton(QPushButton *button, vector<int> &arr) {
+void updateButton(QPushButton *button[], vector<int> &arr) {
   for(int i = 0; i < arr.size(); i++) {
     string name = std::to_string(arr[i]);
     button[i]->setText(name.c_str());
