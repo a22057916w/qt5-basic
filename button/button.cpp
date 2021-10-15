@@ -1,3 +1,7 @@
+/*
+Document
+QObject::connect: https://doc.qt.io/qt-5/qobject.html#connect-2
+*/
 #include <QApplication>
 #include <QWidget>
 #include <QLabel>
@@ -16,7 +20,7 @@ int main(int argc, char *argv[]) {
   QWidget window;
   QPushButton *btn = new QPushButton("click me!", &window);
 
-  // connect(sender, SIGNAL(destroyed(QObject*)), this, SLOT(objectDestroyed()));
+  // QObject::connect(const QObject *sender, const char *signal, const char *method)
   QObject::connect(btn, &QPushButton::clicked, [=](){ btn->setText("Fuck You!");});
 
   // show the application
