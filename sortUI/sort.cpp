@@ -88,7 +88,12 @@ int main(int argc, char *argv[]) {
     updateArray(arr);
     updateButton(button, arr);
     btnSort->setText("Sort");
-    });
+  });
+
+  // when sort button is pressed
+  QObject::connect(btnSort, &QPushButton::clicked, [&](){
+
+  });
 
   window.show();
   return app.exec();
