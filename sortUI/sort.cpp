@@ -27,6 +27,8 @@ int main(int argc, char *argv[]) {
   const int size = 10;
   vector<int> arr(size, 0);
 
+  updateArray(arr);
+
   // create an instance of QApplication
   QApplication app(argc, argv);
   // creating an instance of GUI
@@ -36,7 +38,14 @@ int main(int argc, char *argv[]) {
 
   // create layout inside window
   QGridLayout *layout = new QGridLayout(&window);
-
+  QPushButton *button[arr.size];
+  for(int i = 0; i < arr.size(); i++) {
+    string btnVal = std::to_string(arr[i]);
+    button[i] = new QPushButton(btnVal.c_str());
+    button[i]->setStyleSheet("\ font-weight:bold; \");
+    layout->addWidget(button[i], 0. i. 1, 1);
+  }
+  
   window.show();
   return app.exec();
 }
