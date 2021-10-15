@@ -1,12 +1,19 @@
+/*
+Document:
+QT Style Sheet: https://doc.qt.io/qt-5/stylesheet-examples.html
+Using tr() for All Literal Text : https://doc.qt.io/qt-5/i18n-source-translation.html
+*/
+
 #include "main.h"
 
 #include <algorithm>
 #include <string>
 #include <vector>
-#include <cstdlib>
+#include <iostream>
 
 using std::vector;
 using std::string;
+using std::cout;
 
 /* create delay in qt */
 void delay();
@@ -42,13 +49,23 @@ int main(int argc, char *argv[]) {
 
   // create layout inside window
   QGridLayout *layout = new QGridLayout(&window);
-  QPushButton *button[arr.size];
+  QPushButton *button[arr.size()];
   for(int i = 0; i < arr.size(); i++) {
     string btnVal = std::to_string(arr[i]);
     button[i] = new QPushButton(btnVal.c_str());
-    button[i]->setStyleSheet("\ font-weight:bold; \");
-    layout->addWidget(button[i], 0. i. 1, 1);
+    button[i]->setStyleSheet("font-weight:bold;");
+    layout->addWidget(button[i], 0, i, 1, 1);
   }
+
+  // the following two functions both work, but tr() can transfer any string to QString
+  // which is type of UTF-8. The second one is cathing char * that is already UTF-8
+  QRadioButton *radioBubble = new QRadioButton(QObject::tr("Bubble Sort"));
+  QRadioButton *radioSelection = new QRadioButton("Selection Sort");
+  radioBubble->setChecked(true);
+  layout->addWidget(radioBubble, 3, 0, 1, 1);
+  layout->addWidget(radioSelection, 3, 1, 1, 1);
+
+  // setup reset and sort button
 
   window.show();
   return app.exec();
