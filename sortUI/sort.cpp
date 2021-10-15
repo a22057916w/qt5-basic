@@ -74,6 +74,15 @@ int main(int argc, char *argv[]) {
   btnSort->setStyleSheet("color:green; font-weight:bold;");
   layout->addWidget(btnSort, 3, 9, 1, 1);
 
+  // when reset button is pressed
+  QObject::connect(btnReset, &QPushButton::clicked, [&](){
+    // when reset button is pressed generate another random set of array
+    // and update it in GUI
+    updateArray(arr);
+    updateButton(button, arr);
+    btnSort->setText("Sort");
+    });
+
   window.show();
   return app.exec();
 }
