@@ -66,6 +66,13 @@ int main(int argc, char *argv[]) {
   layout->addWidget(radioSelection, 3, 1, 1, 1);
 
   // setup reset and sort button
+  QPushButton *btnReset = new QPushButton("Reset");
+  btnReset->setStyleSheet("color:red; font-weight:bold;");
+  layout->addWidget(btnReset, 3, 8, 1, 1);
+
+  QPushButton *btnSort = new QPushButton("Sort");
+  btnSort->setStyleSheet("color:green; font-weight:bold;");
+  layout->addWidget(btnSort, 3, 9, 1, 1);
 
   window.show();
   return app.exec();
