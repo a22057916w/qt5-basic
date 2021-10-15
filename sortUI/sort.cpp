@@ -22,7 +22,14 @@ void updateArray(vector<int> &arr) {
   for(auto& e : arr)
     e = rand() % 100;
 }
-/* set the bkg color of button to yellow */
+
+void updateButton(QPushButton *button, vector<int> &arr) {
+  for(int i = 0; i < arr.size(); i++) {
+    string name = std::to_string(arr[i]);
+    button[i]->setText(name.c_str());
+  }
+}
+
 void highlightButton();
 /* set the button to normal color */
 void unhighlightButton();
