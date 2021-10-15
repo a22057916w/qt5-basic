@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <cstdlib>
 
 using std::vector;
 using std::string;
@@ -10,7 +11,10 @@ using std::string;
 /* create delay in qt */
 void delay();
 /* filling array with random number */
-void updateArray();
+void updateArray(vector<int> &arr) {
+  for(auto& e : arr)
+    e = rand() % 100;
+}
 /* set the bkg color of button to yellow */
 void highlightButton();
 /* set the button to normal color */
@@ -45,7 +49,7 @@ int main(int argc, char *argv[]) {
     button[i]->setStyleSheet("\ font-weight:bold; \");
     layout->addWidget(button[i], 0. i. 1, 1);
   }
-  
+
   window.show();
   return app.exec();
 }
