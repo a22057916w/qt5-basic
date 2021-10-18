@@ -72,10 +72,26 @@ void bubblesort(vector<int> arr, QPushButton *button[]) {
 }
 /* run selection sort and update UI */
 void selectionsort(vector<int> arr, QPushButton *button[]) {
-  for(int i = 0; i < arr.size(); i++)
-    for(int j = i + 1; j < arr.size(); j++)
-      if(arr[i] > arr[j])
+  for(int i = 0; i < arr.size(); i++) {
+    bool swapped = false;
+    for(int j = i + 1; j < arr.size(); j++) {
+      highlightButton(button[i]);
+      highlightButton(button[j]);
+      delay();
+      if(arr[i] > arr[j]) {
         std::swap(arr[i], arr[j]);
+        setButtonVal(button[i], arr[i]);
+        setButtonVal(button[j], arr[j]);
+        delay();
+        swapped = true;
+      }
+      unhighlightButton(button[i]);
+      unhighlightButton(button[j]);
+    }
+    // if no swapping had occoured then list is sorted
+    if (!swapped)
+      break;
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -131,12 +147,13 @@ int main(int argc, char *argv[]) {
 
   // when sort button is pressed
   QObject::connect(btnSort, &QPushButton::clicked, [&](){
-    if(isSorting) {
+    // if sorting already in place don't do anything
+    if(isSorting)
       return;
-    }
     isSorting = true;
     btnReset->setVisible(false);
     btnSort->setText("Sorting...");
+
     // if bubble sort radio button is clicked do binary sort
     // else do selection sort
     radioBubble->isChecked() ? bubblesort(arr, buttons) : selectionsort(arr, buttons);
