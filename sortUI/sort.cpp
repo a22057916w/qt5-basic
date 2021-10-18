@@ -16,7 +16,11 @@ using std::string;
 using std::cout;
 
 /* create delay in qt */
-void delay();
+void delay() {
+  QTime dieTime = Qtime::currentTime().addMSecs(SLEEP_ms);
+  while(Qtime::currentTime() < dieTime)
+    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+}
 /* filling array with random number */
 void updateArray(vector<int> &arr) {
   for(auto& e : arr)
@@ -38,11 +42,38 @@ void unhighlightButton(QPushButton *button) {
   button->setStyleSheet("font-weight:bold;");
 }
 /* setup button */
-void setButton();
+void setButtonVal(QPushButton *button, int val) {
+  button->setText(std::to_string(val).c_str());
+}
 /* run bubble sort and update UI */
-void bubblesort();
+void bubblesort(vector<int> arr, QPushButton *button[]) {
+  for(int i = 0; i < arr.size(); i++) {
+    bool swapped = false;
+    for(int j = 0; j < arr.size() - 1; j++) {
+      highlightButton(button[j])
+      highlightButton(button[j + 1])
+      delay();
+      if(arr[j] > arr[j + 1]) {
+        std::swap(arr[j], arr[j+1]);
+        setButtonVal(button[j], arr[j);
+        setButtonVal(button[j+ 1], arr[j + 1]);
+        delay();
+        swapped = true;
+      }
+      unhighlightButton(button[j]);
+      unhighlightButton(button[j + 1]);
+    }
+    // if no swapping had occoured then list is sorted
+    if (!swapped)
+      break;
+}
 /* run selection sort and update UI */
-void selectionsort();
+void selectionsort(vector<int> arr, QPushButton *button[]) {
+  for(int i = 0; i < arr.size(); i++)
+    for(int j = i + 1; j < arr.size(); j++)
+      if(arr[i] > arr[j])
+        std::swap(arr[i], arr[j]);
+}
 
 int main(int argc, char *argv[]) {
 
@@ -100,6 +131,15 @@ int main(int argc, char *argv[]) {
     if(isSorting) {
       return;
     }
+    isSorting = true;
+    btnReset->setVisible(false);
+    btnSort->setText("Sorting...")
+    // if bubble sort radio button is clicked do binary sort
+    // else do selection sort
+    radioBubble->isChecked() ? bubblesort(arr, buttons) : selectionsort(arr, buttons);
+    btnReset->setVisible(true);
+    btnSort->setText("Sort")
+    isSorting = false;
   });
 
   window.show();

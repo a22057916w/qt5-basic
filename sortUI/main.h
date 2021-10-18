@@ -27,7 +27,7 @@ void highlightButton(QPushButton *button);
 /* set the button to normal color */
 void unhighlightButton(QPushButton *button);
 /* setup button */
-void setButton();
+void setButtonVal();
 /* run bubble sort and update UI */
 void bubblesort();
 /* run selection sort and update UI */
