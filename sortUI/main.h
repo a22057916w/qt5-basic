@@ -23,7 +23,7 @@ void updateArray(vector<int> &arr);
 /* set button value corresponding to the updated or sorted array */
 void updateButton(QPushButton *button[], vector<int> &arr);
 /* set the bkg color of button to yellow */
-void highlightButton();
+void highlightButton(QPushButton *button);
 /* set the button to normal color */
 void unhighlightButton();
 /* setup button */

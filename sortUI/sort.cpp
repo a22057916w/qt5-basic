@@ -30,7 +30,9 @@ void updateButton(QPushButton *button[], vector<int> &arr) {
   }
 }
 
-void highlightButton();
+void highlightButton(QPushButton *button) {
+  button->setStyleSheet("background-color:yellow; color->blue; font-weigth:bold;");
+}
 /* set the button to normal color */
 void unhighlightButton();
 /* setup button */
