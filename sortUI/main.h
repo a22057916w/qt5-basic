@@ -27,10 +27,10 @@ void highlightButton(QPushButton *button);
 /* set the button to normal color */
 void unhighlightButton(QPushButton *button);
 /* setup button */
-void setButtonVal();
+void setButtonVal(QPushButton *button, int val);
 /* run bubble sort and update UI */
-void bubblesort();
+void bubblesort(vector<int> arr, QPushButton *button[]);
 /* run selection sort and update UI */
-void selectionsort();
+void selectionsort(vector<int> arr, QPushButton *button[]);
 
 #endif /* MAIN_H_ */
