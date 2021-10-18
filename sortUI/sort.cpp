@@ -34,7 +34,9 @@ void highlightButton(QPushButton *button) {
   button->setStyleSheet("background-color:yellow; color->blue; font-weigth:bold;");
 }
 /* set the button to normal color */
-void unhighlightButton();
+void unhighlightButton(QPushButton *button) {
+  button->setStyleSheet("font-weight:bold;");
+}
 /* setup button */
 void setButton();
 /* run bubble sort and update UI */
@@ -44,6 +46,7 @@ void selectionsort();
 
 int main(int argc, char *argv[]) {
 
+  bool isSorting = false;
   const int size = 10;
   vector<int> arr(size, 0);
 
@@ -94,7 +97,9 @@ int main(int argc, char *argv[]) {
 
   // when sort button is pressed
   QObject::connect(btnSort, &QPushButton::clicked, [&](){
-
+    if(isSorting) {
+      return;
+    }
   });
 
   window.show();

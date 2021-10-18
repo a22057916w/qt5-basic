@@ -25,7 +25,7 @@ void updateButton(QPushButton *button[], vector<int> &arr);
 /* set the bkg color of button to yellow */
 void highlightButton(QPushButton *button);
 /* set the button to normal color */
-void unhighlightButton();
+void unhighlightButton(QPushButton *button);
 /* setup button */
 void setButton();
 /* run bubble sort and update UI */
