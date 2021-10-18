@@ -1,7 +1,8 @@
 /*
 Document:
 QT Style Sheet: https://doc.qt.io/qt-5/stylesheet-examples.html
-Using tr() for All Literal Text : https://doc.qt.io/qt-5/i18n-source-translation.html
+QObject::tr(): https://doc.qt.io/qt-5/i18n-source-translation.html
+QCoreApplication::processEvents: https://doc.qt.io/qt-5/qcoreapplication.html#processEvents
 */
 
 #include "main.h"
@@ -35,7 +36,7 @@ void updateButton(QPushButton *button[], vector<int> &arr) {
 }
 
 void highlightButton(QPushButton *button) {
-  button->setStyleSheet("background-color:yellow; color->blue; font-weight:bold;");
+  button->setStyleSheet("color:blue; background-color:yellow; font-weight:bold;");
 }
 /* set the button to normal color */
 void unhighlightButton(QPushButton *button) {
@@ -44,6 +45,7 @@ void unhighlightButton(QPushButton *button) {
 /* setup button */
 void setButtonVal(QPushButton *button, int val) {
   button->setText(std::to_string(val).c_str());
+  button->setStyleSheet("color:red; background-color:yellow; font-weight:bold;");
 }
 /* run bubble sort and update UI */
 void bubblesort(vector<int> arr, QPushButton *button[]) {
